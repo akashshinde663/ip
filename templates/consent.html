@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IP Lookup Consent</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 2rem; }
+    .card { max-width: 560px; margin:auto; border:1px solid #ddd; border-radius:12px; padding:1.5rem; }
+    button { padding:.7rem 1.2rem; border-radius:10px; border:none; cursor:pointer; }
+    .primary { background:#222; color:white; }
+    .muted { color:#555; font-size:.95rem; }
+    pre { background:#f7f7f7; padding:1rem; border-radius:10px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Consent for IP & Geolocation Lookup</h2>
+    <p class="muted">
+      We collect your IP address and perform a geolocation lookup to show approximate
+      city/country. This is done for demo/analytics. No precise address is collected.
+    </p>
+    <form method="POST" action="/lookup">
+      <button class="primary" type="submit">I Agree — Continue</button>
+    </form>
+    <p class="muted" style="margin-top:1rem">
+      By continuing, you consent to us storing your IP, user-agent, and the lookup response.
+    </p>
+    <details style="margin-top:1rem">
+      <summary>What we log</summary>
+      <pre>{
+  "ip": "your public IP",
+  "user_agent": "your browser UA",
+  "geo": "country/region/city from the provider",
+  "ts": "timestamp"
+}</pre>
+    </details>
+  </div>
+</body>
+</html>
